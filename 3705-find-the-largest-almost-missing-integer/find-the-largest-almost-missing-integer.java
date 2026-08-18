@@ -17,12 +17,11 @@ class Solution {
                 ans=Math.max(ans,nums[i]);
             }
         }else{
-            if(map.get(nums[0])==1 && map.get(nums[n-1])==1){
-                ans=Math.max(nums[0],nums[n-1]);
-            }else if(map.get(nums[0])!=1 && map.get(nums[n-1])==1){
-                ans=nums[n-1];
-            }else if(map.get(nums[0])==1 && map.get(nums[n-1])!=1){
-                ans=nums[0];
+            if(map.get(nums[0])==1){
+                ans=Math.max(ans,nums[0]);
+            }
+            if(map.get(nums[n-1])==1){
+                ans=Math.max(ans,nums[n-1]);
             }
         }
         return ans;
