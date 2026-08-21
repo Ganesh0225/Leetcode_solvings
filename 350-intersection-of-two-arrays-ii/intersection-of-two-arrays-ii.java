@@ -1,0 +1,19 @@
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int val:nums1){
+            map.put(val,map.getOrDefault(val,0)+1);
+        }
+        List<Integer> list=new ArrayList<>();
+        for(int val:nums2){
+            if(map.containsKey(val) && map.get(val)>0){
+                list.add(val);
+                map.put(val,map.get(val)-1);
+            }
+        }
+        int[] ans=new int[list.size()];
+        int i=0;
+        for(int val:list) ans[i++]=val;
+        return ans;
+    }
+}
