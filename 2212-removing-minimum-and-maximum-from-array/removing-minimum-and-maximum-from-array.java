@@ -13,9 +13,10 @@ class Solution {
             }
         }
         List<Integer> list=new ArrayList<>();
-        list.add(minIndex);
-        list.add(maxIndex);
-        Collections.sort(list);
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==min || nums[i]==max) list.add(i);
+        }
+        if(min==max) list.add(list.get(0));
         int left=list.get(1)-0+1;
         int right=nums.length-list.get(0);
         int both=(list.get(0)-0+1)+(nums.length-list.get(1));
