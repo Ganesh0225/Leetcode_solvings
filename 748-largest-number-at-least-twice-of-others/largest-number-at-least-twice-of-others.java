@@ -4,7 +4,6 @@ class Solution {
         for(int i=0;i<nums.length;i++){
             if(nums[i]>nums[max]) max=i;
         }
-        System.out.print(max);
         for(int i=0;i<nums.length;i++){
             if(2*nums[i]>nums[max] && i!=max){
                 max=-1;
