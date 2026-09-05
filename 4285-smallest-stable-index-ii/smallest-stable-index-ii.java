@@ -7,15 +7,13 @@ class Solution {
             min=Math.min(min,nums[i]);
             mina[i]=min;
         }
-        int res=n;
         for(int i=0;i<n;i++){
             if(nums[i]>max) max=nums[i];
             int score=max-mina[i];
             if(score<=k){
-                res=Math.min(res,i);
+                return i;
             }
         }
-        if(res==n) return -1;
-        return res;
+        return -1;
     }
 }
