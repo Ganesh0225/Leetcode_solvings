@@ -14,35 +14,52 @@
  * }
  */
 class Solution {
-    public int averageOfSubtree(TreeNode root) {
-        Queue<TreeNode> q=new LinkedList<>();
-        int count=0;
-        q.offer(root);
-        while(!q.isEmpty()){
-            TreeNode cur=q.poll();
-            int avg=average(cur);
-            if(avg==cur.val) count++;
-            if(cur.left!=null) q.offer(cur.left);
-            if(cur.right!=null) q.offer(cur.right);
-        }
+    int count=0;
+    public int averageOfSubtree(TreeNode root){
+        dfs(root);
         return count;
         
     }
-    public int average(TreeNode root){
-        int avg=0,sum=0;
-        int size=0;
-        Queue<TreeNode> q=new LinkedList<>();
-        q.offer(root);
-        while(!q.isEmpty()){
-            TreeNode node=q.poll();
-            size++;
-            sum+=node.val;
-            if(node.left!=null){
-                q.offer(node.left);
-            }
-            if(node.right!=null) q.offer(node.right);
-        }
-        avg=sum/size;
-        return avg;
+
+    // Returns int[] {subtreeSum, subtreeCount}
+    public int[] dfs(TreeNode node){
+        if(node==null) return new int[]{0,0};
+        int[] left=dfs(node.left);
+        int[] right=dfs(node.right);
+        int sum=left[0]+right[0]+node.val;
+        int size=left[1]+right[1]+1;
+        if(node.val==sum/size) count++;
+        return new int[]{sum,size};
     }
+    // public int averageOfSubtree(TreeNode root) {
+    //     Queue<TreeNode> q=new LinkedList<>();
+    //     int count=0;
+    //     q.offer(root);
+    //     while(!q.isEmpty()){
+    //         TreeNode cur=q.poll();
+    //         int avg=average(cur);
+    //         if(avg==cur.val) count++;
+    //         if(cur.left!=null) q.offer(cur.left);
+    //         if(cur.right!=null) q.offer(cur.right);
+    //     }
+    //     return count;
+        
+    // }
+    // public int average(TreeNode root){
+    //     int avg=0,sum=0;
+    //     int size=0;
+    //     Queue<TreeNode> q=new LinkedList<>();
+    //     q.offer(root);
+    //     while(!q.isEmpty()){
+    //         TreeNode node=q.poll();
+    //         size++;
+    //         sum+=node.val;
+    //         if(node.left!=null){
+    //             q.offer(node.left);
+    //         }
+    //         if(node.right!=null) q.offer(node.right);
+    //     }
+    //     avg=sum/size;
+    //     return avg;
+    // }
 }
