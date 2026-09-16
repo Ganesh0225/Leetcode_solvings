@@ -7,7 +7,6 @@ class Solution {
             int ascii=s.charAt(i);
             i++;
             String binary=Integer.toBinaryString(ascii);
-            System.out.println("0"+binary);
             sb.append("0"+binary);
         }
         n=sb.length();
