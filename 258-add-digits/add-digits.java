@@ -8,7 +8,7 @@ class Solution {
             sum+=rem;
             num/=10;
             if(sum<10 && num==0) break;
-            if(num==0){
+            else if(num==0){
                 num=sum;
                 sum=0;
             }
