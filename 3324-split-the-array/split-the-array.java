@@ -1,15 +1,9 @@
 class Solution {
     public boolean isPossibleToSplit(int[] nums) {
-        int max=nums[0];
-        for(int val:nums){
-            max=Math.max(max,val);
-        }
-        int[] freq=new int[max+1];
+        int[] freq=new int[101];
         for(int i=0;i<nums.length;i++){
             freq[nums[i]]++;
-        }
-        for(int i=0;i<=max;i++){
-            if(freq[i]>2) return false;
+            if(freq[nums[i]]>2) return false;
         }
         return true;
 
