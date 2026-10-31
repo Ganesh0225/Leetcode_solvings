@@ -13,11 +13,11 @@ class Solution {
                 sum+=k%10;
                 k/=10;
             }
-            list.add(sum%10);
+            list.addFirst(sum%10);
             carry=sum/10;
         }
-        if(carry>0) list.add(carry);
-        Collections.reverse(list);
+        if(carry>0) list.addFirst(carry);
+        //Collections.reverse(list);
         return list;
     }
 }
