@@ -1,6 +1,8 @@
 class Solution {
     public List<Integer> addToArrayForm(int[] num, int k) {
-        List<Integer> list=new ArrayList<>();
+        //to use addFirst() method we are using LinkedList<>() take O(n)
+        //while using addFirst() in ArrayList<>() it takes O(n2) 
+        List<Integer> list=new LinkedList<>();
         int i=num.length-1;
         int carry=0;
         while(i>=0 || k>0){
