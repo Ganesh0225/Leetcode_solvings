@@ -6,7 +6,10 @@ class Solution {
         return ans;
     }
     public void f(int[] nums,List<List<Integer>> ans,List<Integer> list,Set<Integer> set){
-        if(list.size()==nums.length) ans.add(new ArrayList<>(list));
+        if(list.size()==nums.length){
+            ans.add(new ArrayList<>(list));
+            return;
+        }
         for(int i=0;i<nums.length;i++){
             if(!set.contains(nums[i])){
                 list.add(nums[i]);
