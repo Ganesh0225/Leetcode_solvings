@@ -9,7 +9,7 @@ class Solution {
                 sum+=nums.get(j);
                 if(size>=l && size<=r){
                     if(sum>0) min=Math.min(min,sum);
-                }
+                }else if(size>r) break;
 
             }
         }
