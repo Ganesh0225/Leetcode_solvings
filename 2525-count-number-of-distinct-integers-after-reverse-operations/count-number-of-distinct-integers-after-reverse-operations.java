@@ -11,14 +11,12 @@ class Solution {
     public int countDistinctIntegers(int[] nums) {
         Set<Integer> set=new HashSet<>();
         int n=nums.length;
-        int[] arr=new int[2*n];
         for(int i=0;i<n;i++){
-            arr[i]=nums[i];
-            set.add(arr[i]);
+            set.add(nums[i]);
         }
-        for(int i=n;i<arr.length;i++){
-            arr[i]=reverse(nums[i-n]);
-            set.add(arr[i]);
+        for(int i=0;i<n;i++){
+            int val=reverse(nums[i]);
+            set.add(val);
         }
         return set.size();
     }
