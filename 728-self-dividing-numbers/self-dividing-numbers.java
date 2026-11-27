@@ -1,15 +1,10 @@
 class Solution {
     private boolean selfDivide(int num){
-        List<Integer> list=new ArrayList<>();
         int m=num;
         while(m>0){
             int x=m%10;
-            list.add(x);
+            if(x==0 || num%x!=0) return false;
             m/=10;
-        }
-        if(list.contains(0)) return false;
-        for(int val:list){
-            if(num%val!=0) return false;
         }
         return true;
     }
